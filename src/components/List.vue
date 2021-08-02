@@ -18,7 +18,7 @@
                 </v-chip></v-list-item-subtitle
               >
               <v-list-item-subtitle v-else
-                ><v-chip class="ma-2" color="error" outlined>
+                ><v-chip class="ma-2" color="#C51162" outlined>
                   <v-icon left>
                     mdi-cloud-question
                   </v-icon>

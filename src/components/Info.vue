@@ -1,16 +1,37 @@
 <template>
-  <v-row class="mt-5 mb-5">
+  <v-row class="mt-2">
     <v-col>
-      <v-card height="100%" width="20%">
-        <v-card-text v-if="monitors === null">
-          <v-skeleton-loader type="article"></v-skeleton-loader>
-        </v-card-text>
-        <v-card-text v-else>
-          <h2>
-            There are {{ activeMonitors.length }} out of
-            {{ monitors.length }} monitors active
-          </h2>
-        </v-card-text>
+      <v-card
+        v-if="monitors === null"
+        color="rgb(255, 0, 0, 0)"
+        height="100%"
+        width="20%"
+      >
+        <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+      </v-card>
+      <v-card v-else color="rgb(255, 0, 0, 0)" height="100%" width="20%">
+        <v-alert
+          v-if="activeMonitors.length === monitors.length"
+          dismissible
+          color="cyan"
+          border="left"
+          elevation="2"
+          colored-border
+          icon="mdi-information-outline"
+        >
+          Es sind alle Server aktiv
+        </v-alert>
+        <v-alert
+          v-else-if="activeMonitors.length !== monitors.length"
+          dismissible
+          color="#C51162"
+          border="left"
+          elevation="2"
+          colored-border
+          icon="mdi-information-outline"
+        >
+          Einige Server sind offline
+        </v-alert>
       </v-card>
     </v-col>
   </v-row>
